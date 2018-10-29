@@ -38,18 +38,16 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import es.upm.miw.bookshop.Integracion.FirebaseLogin;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     static final String LOG_TAG = "MiW";
 
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
-
     private EditText mEmailField;
     private EditText mPasswordField;
 
-    private ProgressDialog mProgressDialog;
+    private FirebaseLogin firebaseLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // [START initialize_auth]
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+        firebaseLogin = FirebaseLogin.getInstance();
         // [END initialize_auth]
     }
 
@@ -76,8 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        if (firebaseLogin.userSigned()) {
+            Toast.makeText(this, "usuario signed", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "usuario NO signed", Toast.LENGTH_LONG).show();
+        }
     }
     // [END on_start_check_user]
 
@@ -123,37 +124,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        // Create EmailAuthCredential with email and password
-        AuthCredential credential = EmailAuthProvider.getCredential(email, password);
-
-        // [START signin_with_email_and_password]
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.i(LOG_TAG, "signInWithCredentials:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(LOG_TAG, "signInWithCredentials:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed: " + task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
-        // [END signin_with_email_and_password]
+        this.firebaseLogin.signInWithCredentials(email, password, this).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Log.i(LOG_TAG, "signInWithCredentials:success");
+                    FirebaseLogin.getInstance().userSigned();
+                } else {
+                    Log.w(LOG_TAG, "signInWithCredentials:failure", task.getException());
+                }
+            }
+        });
     }
 
     private void signOut() {
-        mAuth.signOut();
-        updateUI(null);
+        this.firebaseLogin.signOut();
     }
 
-    private void updateUI(FirebaseUser user) {
+    /*private void updateUI(FirebaseUser user) {
         final TextView uidView = findViewById(R.id.statusId);
         TextView emailView = findViewById(R.id.statusEmail);
         Switch mSwitch = findViewById(R.id.statusSwitch);
@@ -174,5 +162,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonSignIn).setEnabled(!isSignedIn);
         findViewById(R.id.buttonAnonymousSignOut).setEnabled(isSignedIn);
         mSwitch.setChecked(isSignedIn);
-    }
+    }*/
 }

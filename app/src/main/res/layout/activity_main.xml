@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="miw.upm.es.firebaseauth.MainActivity">
+    tools:context="es.upm.miw.bookshop.MainActivity">
 
     <ImageView
         android:id="@+id/icon"
@@ -61,7 +61,6 @@
         android:layout_width="@dimen/field_width_standard"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonSignIn"
-        android:enabled="false"
         android:text="@string/sign_out"
         android:layout_toEndOf="@+id/buttonSignIn" />
 
