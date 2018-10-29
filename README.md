@@ -48,4 +48,4 @@ Se adjuntará un documento de máximo 2 páginas describiendo la solución propu
 
 Se propone la arquitectura básica que se ilustra en la figura 1:
 
-[![UML](https://github.com/tomas-teston/FEM.miw.conectividad/tree/master/app/src/main/res/drawable/chart.png)](https://github.com/tomas-teston/FEM.miw.conectividad/tree/master/app/src/main/res/drawable/chart.png)
+[![UML](https://github.com/tomas-teston/FEM.miw.conectividad/chart.png)](https://github.com/tomas-teston/FEM.miw.conectividad/chart.png)
