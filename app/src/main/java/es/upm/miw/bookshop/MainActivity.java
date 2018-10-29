@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package es.upm.miw.firebaseauth;
+package es.upm.miw.bookshop;
 
 // https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/EmailPasswordActivity.java
 
