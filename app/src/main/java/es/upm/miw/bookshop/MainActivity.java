@@ -19,6 +19,7 @@ package es.upm.miw.bookshop;
 // https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/EmailPasswordActivity.java
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Click listeners
         findViewById(R.id.buttonSignIn).setOnClickListener(this);
         findViewById(R.id.buttonAnonymousSignOut).setOnClickListener(this);
-        findViewById(R.id.statusSwitch).setClickable(false);
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -69,20 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // [END initialize_auth]
     }
 
-    // [START on_start_check_user]
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        if (firebaseLogin.userSigned()) {
-            Toast.makeText(this, "usuario signed", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "usuario NO signed", Toast.LENGTH_LONG).show();
-        }
     }
-    // [END on_start_check_user]
 
-    // https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/AnonymousAuthActivity.java
+    @Override
+    public void onDestroy() {
+        this.firebaseLogin.signOut();
+        super.onDestroy();
+    }
+
     @Override
     public void onClick(View v) {
         int i = v.getId();
@@ -130,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (task.isSuccessful()) {
                     Log.i(LOG_TAG, "signInWithCredentials:success");
                     FirebaseLogin.getInstance().userSigned();
+                    Intent intent = new Intent(getApplicationContext(), BooksListActivity.class);
+                    startActivity(intent);
                 } else {
                     Log.w(LOG_TAG, "signInWithCredentials:failure", task.getException());
                 }
@@ -162,5 +161,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonSignIn).setEnabled(!isSignedIn);
         findViewById(R.id.buttonAnonymousSignOut).setEnabled(isSignedIn);
         mSwitch.setChecked(isSignedIn);
+
+
+        System.gc(); System.exit(0);
     }*/
 }

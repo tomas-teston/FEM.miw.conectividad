@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Firebase Auth</string>
+    <string name="app_name">Book Shop</string>
 
-    <string name="label_emailpassword">Email/Password Authentication</string>
+    <string name="label_bienvenida">Bienvenido a Book Shop</string>
     <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.</string>
 
     <string name="label_anonymous_auth">Welcome to bookshop</string>
@@ -45,9 +45,15 @@
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
     <string name="anonymous_sign_in">Anonymous Sign In</string>
-    <string name="account_linking">Account Linking</string>
+    <string name="info_login">Introduce usuario y contraseña</string>
     <string name="status_logged">Logged</string>
     <string name="field_required">Field required.</string>
+
+    <string name="titulo">Título</string>
+    <string name="autor">Autor</string>
+    <string name="buscar">Buscar</string>
+    <string name="logout">Desconectar</string>
+
 </resources>
 
 
