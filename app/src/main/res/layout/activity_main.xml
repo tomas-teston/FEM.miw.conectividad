@@ -7,13 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="miw.upm.es.firebaseauth.MainActivity">
+    tools:context="es.upm.miw.bookshop.MainActivity">
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/desc_firebase_lockup"
         android:src="@drawable/firebase_lockup_400" />
 
@@ -22,92 +24,60 @@
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/icon"
-        android:layout_marginBottom="8dp"
-        android:text="@string/label_emailpassword"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="226dp"
+        android:text="@string/label_bienvenida"
         android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/statusId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleAnonymous"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/signed_out"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/statusEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/statusId"
-        android:layout_marginBottom="8dp"
-        android:textStyle="bold"
-        tools:text="Email: none" />
 
     <Button
         android:id="@+id/buttonSignIn"
         android:layout_width="@dimen/field_width_standard"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/fieldEmail"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/titleAnonymous"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/sign_in" />
 
     <Button
         android:id="@+id/buttonAnonymousSignOut"
         android:layout_width="@dimen/field_width_standard"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/icon"
         android:layout_alignTop="@+id/buttonSignIn"
-        android:enabled="false"
-        android:text="@string/sign_out"
-        android:layout_toEndOf="@+id/buttonSignIn" />
-
-    <Switch
-        android:id="@+id/statusSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/statusId"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:checked="false"
-        android:text="@string/status_logged" />
+        android:text="@string/sign_out" />
 
     <TextView
         android:id="@+id/titleLinking"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/statusEmail"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/titleAnonymous"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/account_linking" />
+        android:layout_marginTop="286dp"
+        android:text="@string/info_login" />
 
     <EditText
         android:id="@+id/fieldEmail"
-        android:layout_width="@dimen/field_width_standard"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleLinking"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/titleAnonymous"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginBottom="292dp"
         android:hint="@string/hint_email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/fieldPassword"
-        android:layout_width="@dimen/field_width_standard"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/fieldEmail"
-        android:layout_toEndOf="@+id/fieldEmail"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/titleAnonymous"
+        android:layout_marginBottom="234dp"
         android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:inputType="textPassword" />
 
 
 </RelativeLayout>
