@@ -1,44 +1,31 @@
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package es.upm.miw.bookshop;
-
-// https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/EmailPasswordActivity.java
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import java.util.List;
 
 import es.upm.miw.bookshop.Integracion.FirebaseLogin;
+import es.upm.miw.bookshop.models.Books;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BooksListActivity extends AppCompatActivity implements View.OnClickListener {
 
     static final String LOG_TAG = "MiW";
+
+    private static final String API_BASE_URL = "https://www.googleapis.com";
 
     private FirebaseLogin firebaseLogin;
 
@@ -51,6 +38,8 @@ public class BooksListActivity extends AppCompatActivity implements View.OnClick
     private ListView listaLibros;
 
     private int backpress = 0;
+
+    private BookRESTAPIService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +61,12 @@ public class BooksListActivity extends AppCompatActivity implements View.OnClick
 
         firebaseLogin = FirebaseLogin.getInstance();
 
-        this.listaLibros.setVisibility(View.INVISIBLE);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiService = retrofit.create(BookRESTAPIService.class);
     }
 
     @Override
@@ -107,8 +101,48 @@ public class BooksListActivity extends AppCompatActivity implements View.OnClick
         }, 3000);
     }
 
+    private void actualizaListaLibros(Books books) {
+        Log.e(LOG_TAG, "Adaptando");
+        BookAdapter adapter = new BookAdapter(
+                this,
+                R.layout.item_book,
+                books.getItems()
+        );
+        Log.e(LOG_TAG, "Set adaptador");
+        this.listaLibros.setAdapter(adapter);
+    }
+
     private void buscarLibros() {
         Toast.makeText(this, "Buscar libros", Toast.LENGTH_LONG).show();
+        final StringBuilder query = new StringBuilder();
+        final StringBuilder respuesta = new StringBuilder();
+
+        query.append(this.tituloEdit.getText()).append("+inauthor:").append(this.autorEdit.getText());
+        Call<Books> call_async = apiService.getBooks(query.toString(), "lite");
+
+        // Asíncrona
+        call_async.enqueue(new Callback<Books>() {
+
+            @Override
+            public void onResponse(Call<Books> call, Response<Books> response) {
+                Log.e(LOG_TAG, "Actualizando libros...");
+                actualizaListaLibros(response.body());
+            }
+
+            /**
+             * Invoked when a network exception occurred talking to the server or when an unexpected
+             * exception occurred creating the request or processing the response.
+             */
+            @Override
+            public void onFailure(Call<Books> call, Throwable t) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "ERROR: " + t.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
+                Log.e(LOG_TAG, t.getMessage());
+            }
+        });
     }
 
     @Override
