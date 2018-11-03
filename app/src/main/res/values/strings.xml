@@ -51,8 +51,12 @@
 
     <string name="titulo">Título</string>
     <string name="autor">Autor</string>
+    <string name="descripcion">Descripcion</string>
     <string name="buscar">Buscar</string>
     <string name="logout">Desconectar</string>
+    <string name="btnPedir">Pedir</string>
+    <string name="btnMasDetalles">Más detalles</string>
+
 
 </resources>
 
