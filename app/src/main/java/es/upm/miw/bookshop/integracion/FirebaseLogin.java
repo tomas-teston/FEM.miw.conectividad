@@ -1,4 +1,4 @@
-package es.upm.miw.bookshop.Integracion;
+package es.upm.miw.bookshop.integracion;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

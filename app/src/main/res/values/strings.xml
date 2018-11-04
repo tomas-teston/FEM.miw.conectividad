@@ -49,13 +49,40 @@
     <string name="status_logged">Logged</string>
     <string name="field_required">Field required.</string>
 
-    <string name="titulo">Título</string>
-    <string name="autor">Autor</string>
-    <string name="descripcion">Descripcion</string>
+    <string name="titulo">Título:</string>
+    <string name="nulltitulo">Sin título</string>
+    <string name="autor">Autor:</string>
+    <string name="nullautor">Sin autor</string>
+    <string name="descripcion">Descripcion:</string>
+    <string name="nulldescripcion">Sin descripcion</string>
     <string name="buscar">Buscar</string>
     <string name="logout">Desconectar</string>
     <string name="btnPedir">Pedir</string>
     <string name="btnMasDetalles">Más detalles</string>
+
+    <string name="pedidoCorrecto">Pedido registrado correctamente</string>
+    <string name="errorCantidadEjemplares">Error en la cantidad de ejemplares</string>
+    <string name="noLibrosEncontrados">No se encuentran libros con estas características</string>
+
+    <string name="tituloDialogEjemplares">Seleccione número de ejemplares a pedir</string>
+    <string name="btnDialogAceptar">Realizar pedido</string>
+    <string name="btnDialogCancelar">Cancelar</string>
+
+    <string name="btnAniadirQueja">Añadir foto mal recibido</string>
+    <string name="btnEliminar">Eliminar</string>
+    <string name="labelFechaRegistro">Fecha registro:</string>
+    <string name="labelFechaRecibido">Fecha recibido:</string>
+    <string name="labelEstado">Estado:</string>
+    <string name="nullfechaRegistro">Sin fecha registro</string>
+    <string name="nullfechaEntrega">Aun no recibido</string>
+    <string name="verOrder">Ver pedidos</string>
+
+
+
+
+    <string name="pulseDeNuevoExit">Pulse de nuevo para salir</string>
+
+
 
 
 </resources>

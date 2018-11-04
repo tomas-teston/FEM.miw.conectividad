@@ -16,17 +16,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
+import es.upm.miw.bookshop.models.BookTransfer;
 import es.upm.miw.bookshop.models.Item;
 import es.upm.miw.bookshop.models.VolumeInfo;
 
-public class BookAdapter extends ArrayAdapter implements View.OnClickListener{
+public class OrderAdapter extends ArrayAdapter implements View.OnClickListener{
 
     private Context contexto;
-    private List<Item> libros;
+    private List<BookTransfer> libros;
     private int idRecursoLayout;
 
 
-    public BookAdapter(Context context, int resource, List<Item> libros) {
+    public OrderAdapter(Context context, int resource, List<BookTransfer> libros) {
         super(context, resource, libros);
         this.contexto = context;
         this.idRecursoLayout = resource;
@@ -48,62 +49,77 @@ public class BookAdapter extends ArrayAdapter implements View.OnClickListener{
 
 
         // Asignamos datos a los elementos de la vista
-        VolumeInfo volumeInfo = libros.get(position).getVolumeInfo();
-        String titulo = volumeInfo.getTitle();
-        List<String> autores = volumeInfo.getAuthors();
-        String descripcion = volumeInfo.getDescription();
+        BookTransfer bookTransfer = libros.get(position);
+        String titulo = bookTransfer.getTitulo();
+        List<String> autores = bookTransfer.getAutores();
+        String descripcion = bookTransfer.getDescripcion();
+        String fecha_registro = bookTransfer.getfecha_registro();
+        String fecha_entrega = bookTransfer.getFecha_entrega();
 
 
-        TextView mTitulo = (TextView) vista.findViewById(R.id.titulo);
+        TextView mTitulo = (TextView) vista.findViewById(R.id.tituloOrder);
         if (titulo != null) {
             mTitulo.setText(titulo);
         } else {
             mTitulo.setText(String.valueOf(R.string.nulltitulo));
         }
 
-        TextView mAutor = (TextView) vista.findViewById(R.id.autor);
+        TextView mAutor = (TextView) vista.findViewById(R.id.autorOrder);
         if (autores != null) {
             mAutor.setText(autores.toString());
         } else {
             mAutor.setText(R.string.nullautor);
         }
 
-        TextView mDescripcion = (TextView) vista.findViewById(R.id.descripcion);
+        TextView mDescripcion = (TextView) vista.findViewById(R.id.descripcionOrder);
         if (descripcion != null) {
             mDescripcion.setText(descripcion);
         } else {
             mDescripcion.setText(R.string.nulldescripcion);
         }
 
-        ImageView mImageView = (ImageView) vista.findViewById(R.id.bookPreview);
+        TextView mFechaRegistro = (TextView) vista.findViewById(R.id.fecha_registro);
+        if (fecha_registro != null) {
+            mFechaRegistro.setText(fecha_registro);
+        } else {
+            mFechaRegistro.setText(R.string.nullfechaRegistro);
+        }
 
-        if (volumeInfo.getImageLinks() != null) {
+        TextView mFechaEntrega = (TextView) vista.findViewById(R.id.fecha_recibido);
+        if (fecha_entrega != null) {
+            mFechaEntrega.setText(fecha_entrega);
+        } else {
+            mFechaEntrega.setText(R.string.nullfechaEntrega);
+        }
+
+        ImageView mImageView = (ImageView) vista.findViewById(R.id.bookPreviewOrder);
+
+        /*if (volumeInfo.getImageLinks() != null) {
             Glide.with(vista.getContext())
                     .load(volumeInfo.getImageLinks().getSmallThumbnail())
                     .thumbnail(0.5f)
                     .crossFade(1000)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(mImageView);
-        }
+        }*/
 
-        Button btnPedir = vista.findViewById(R.id.btnPedir);
-        btnPedir.setTag(position);
-        btnPedir.setOnClickListener(this);
+        /*Button btnAniadirQueja = vista.findViewById(R.id.btnAniadirQueja);
+        btnAniadirQueja.setTag(position);
+        btnAniadirQueja.setOnClickListener(this);
+
+        Button btnEliminar = vista.findViewById(R.id.btnEliminar);
+        btnEliminar.setOnClickListener(this);*/
 
         return vista;
-    }
-
-    public List<Item> getLibros() {
-        return libros;
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v.getId() == R.id.btnPedir) {
+        /*if (v.getId() == R.id.btnPedir) {
             DialogFragment dialog = new NumEjemplaresDialogFragment();
             dialog.show(((BooksListActivity) v.getContext()).getSupportFragmentManager(), v.getTag().toString());
-        }
+        }*/
     }
 
 
