@@ -1,7 +1,5 @@
 package es.upm.miw.bookshop;
 
-import java.util.List;
-
 import es.upm.miw.bookshop.models.Books;
 import retrofit2.Call;
 import retrofit2.http.GET;

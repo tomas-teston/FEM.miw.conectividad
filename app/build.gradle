@@ -35,6 +35,20 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'org.apache.commons:commons-lang3:3.7'
+
+    // btb Added to enable Realtime Database feaature from Firebase
+    implementation 'com.google.firebase:firebase-database:16.0.4'
+
+    // btb Added to enable Realtime Authentication features from Firebase
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.firebaseui:firebase-ui-auth:4.2.0'
+
+    // btb Adde to enable Firebase Storage
+    implementation "com.google.firebase:firebase-storage:16.0.4"
+
+    // Load image with Glide
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
