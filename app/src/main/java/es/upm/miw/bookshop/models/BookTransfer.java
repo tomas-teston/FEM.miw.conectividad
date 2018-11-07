@@ -10,15 +10,19 @@ import es.upm.miw.bookshop.enums.BookState;
 
 public class BookTransfer {
 
+    private String id;
     private String titulo;
     private List<String> autores;
     private String descripcion;
     private int numEjemplares;
-    String fecha_registro;
-    String fecha_entrega;
-    BookState estado;
+    private String fecha_registro;
+    private String fecha_entrega;
+    private BookState estado;
+    private String urlPreview;
+    private String urlFotoQueja;
 
     public BookTransfer() {
+        this.id = null;
         this.titulo = "";
         this.autores = new ArrayList<>();
         this.descripcion = "";
@@ -26,9 +30,12 @@ public class BookTransfer {
         this.fecha_registro = new SimpleDateFormat("dd-M-yyyy hh:mm:ss", Locale.forLanguageTag("es")).format(new Date());
         this.fecha_entrega = "";
         this.estado = BookState.ORDERED;
+        this.urlPreview = "";
+        this.urlFotoQueja = null;
     }
 
-    public BookTransfer(String titulo, List<String> autores, String descripcion, int numEjemplares, BookState estado) {
+    public BookTransfer(String id, String titulo, List<String> autores, String descripcion, int numEjemplares, BookState estado, String urlPreview) {
+        this.id = id;
         this.titulo = titulo;
         this.autores = autores;
         this.descripcion = descripcion;
@@ -36,6 +43,16 @@ public class BookTransfer {
         this.fecha_registro = new SimpleDateFormat("dd-M-yyyy hh:mm:ss", Locale.forLanguageTag("es")).format(new Date());
         this.fecha_entrega = "";
         this.estado = estado;
+        this.urlPreview = urlPreview;
+        this.urlFotoQueja = null;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -94,18 +111,34 @@ public class BookTransfer {
         this.estado = estado;
     }
 
+    public String getUrlPreview() {
+        return urlPreview;
+    }
 
+    public void setUrlPreview(String urlPreview) {
+        this.urlPreview = urlPreview;
+    }
+
+    public String getUrlFotoQueja() {
+        return urlFotoQueja;
+    }
+
+    public void setUrlFotoQueja(String urlFotoQueja) {
+        this.urlFotoQueja = urlFotoQueja;
+    }
 
     @Override
     public String toString() {
         return "BookTransfer{" +
-                "titulo='" + titulo + '\'' +
+                "id='" + id + '\'' +
+                ", titulo='" + titulo + '\'' +
                 ", autores=" + autores +
                 ", descripcion='" + descripcion + '\'' +
                 ", numEjemplares=" + numEjemplares +
                 ", fecha_registro='" + fecha_registro + '\'' +
                 ", fecha_entrega='" + fecha_entrega + '\'' +
                 ", estado=" + estado +
+                ", urlPreview='" + urlPreview + '\'' +
                 '}';
     }
 }

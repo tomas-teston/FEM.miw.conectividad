@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import es.upm.miw.bookshop.Integracion.FirebaseBBDD;
 import es.upm.miw.bookshop.enums.BookState;
-import es.upm.miw.bookshop.integracion.FirebaseBBDD;
-import es.upm.miw.bookshop.integracion.FirebaseLogin;
+import es.upm.miw.bookshop.Integracion.FirebaseLogin;
 import es.upm.miw.bookshop.models.BookTransfer;
 import es.upm.miw.bookshop.models.Books;
 import es.upm.miw.bookshop.models.VolumeInfo;
@@ -187,7 +187,7 @@ public class BooksListActivity extends AppCompatActivity implements View.OnClick
         if (!cantidad.isEmpty()) {
             VolumeInfo volumeInfo = this.adapter.getLibros().get(Integer.parseInt(tag)).getVolumeInfo();
 
-            BookTransfer bookTransfer = new BookTransfer(volumeInfo.getTitle(), volumeInfo.getAuthors(), volumeInfo.getDescription(), Integer.parseInt(cantidad), BookState.ORDERED);
+            BookTransfer bookTransfer = new BookTransfer(null, volumeInfo.getTitle(), volumeInfo.getAuthors(), volumeInfo.getDescription(), Integer.parseInt(cantidad), BookState.ORDERED, volumeInfo.getImageLinks().getThumbnail());
             FirebaseBBDD.getInstance().sendBook(bookTransfer);
             Log.w(MainActivity.LOG_TAG, "Datos insertados: " + bookTransfer.toString());
             Toast.makeText(this, R.string.pedidoCorrecto, Toast.LENGTH_SHORT).show();

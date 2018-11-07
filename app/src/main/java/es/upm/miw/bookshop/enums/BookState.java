@@ -4,5 +4,6 @@ public enum BookState {
     ORDERED,
     IN_PROCESS,
     SENT,
-    DELIVERED
+    DELIVERED,
+    CHECKING_ORDER
 }
