@@ -10,7 +10,7 @@
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
     <string name="send_link">Send Link</string>
-    <string name="sign_out">Sign Out</string>
+    <string name="exit">Exit</string>
     <string name="disconnect">Disconnect</string>
     <string name="loading">Loading…</string>
     <string name="signed_in">Signed In</string>
@@ -48,6 +48,8 @@
     <string name="info_login">Introduce usuario y contraseña</string>
     <string name="status_logged">Logged</string>
     <string name="field_required">Field required.</string>
+    <string name="logKo">Usuario y/o contraseña erroneo.</string>
+
 
     <string name="titulo">Título:</string>
     <string name="nulltitulo">Sin título</string>
@@ -68,17 +70,20 @@
     <string name="btnDialogAceptar">Realizar pedido</string>
     <string name="btnDialogCancelar">Cancelar</string>
 
-    <string name="btnAniadirQueja">Añadir foto mal recibido</string>
+    <string name="btnAniadirQueja">Añadir foto relamación</string>
+    <string name="btnModificarQueja">Modificar foto</string>
     <string name="btnEliminar">Eliminar</string>
-    <string name="labelFechaRegistro">Fecha registro:</string>
-    <string name="labelFechaRecibido">Fecha recibido:</string>
+    <string name="labelFechaRegistro">Registrado:</string>
+    <string name="labelFechaRecibido">Recibido:</string>
     <string name="labelEstado">Estado:</string>
     <string name="nullfechaRegistro">Sin fecha registro</string>
     <string name="nullfechaEntrega">Aun no recibido</string>
+    <string name="nullEstado">Sin estado</string>
     <string name="verOrder">Ver pedidos</string>
+    <string name="errorAlEliminarImagen">Error al eliminar imagen</string>
 
-
-
+    <string name="adjutandoImagen">Adjuntando imagen, espere por favor...</string>
+    <string name="okrelamacion">Reclamación registrada correctamente</string>
 
     <string name="pulseDeNuevoExit">Pulse de nuevo para salir</string>
 

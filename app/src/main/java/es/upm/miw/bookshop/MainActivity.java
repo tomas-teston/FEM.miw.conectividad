@@ -26,13 +26,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-import es.upm.miw.bookshop.integracion.FirebaseBBDD;
-import es.upm.miw.bookshop.integracion.FirebaseLogin;
+import es.upm.miw.bookshop.Integracion.FirebaseBBDD;
+import es.upm.miw.bookshop.Integracion.FirebaseLogin;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Click listeners
         findViewById(R.id.buttonSignIn).setOnClickListener(this);
-        findViewById(R.id.buttonAnonymousSignOut).setOnClickListener(this);
+        findViewById(R.id.buttonExit).setOnClickListener(this);
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -78,8 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int i = v.getId();
         if (i == R.id.buttonSignIn) {
             signInWithCredentials();
-        } else if (i == R.id.buttonAnonymousSignOut) {
-            signOut();
+        } else if (i == R.id.buttonExit) {
+            exit();
         }
     }
 
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent intent = new Intent(getApplicationContext(), BooksListActivity.class);
                     startActivity(intent);
                 } else {
+                    Toast.makeText(getApplicationContext(), R.string.logKo, Toast.LENGTH_LONG).show();
                     Log.w(LOG_TAG, "signInWithCredentials:failure", task.getException());
                 }
             }
@@ -133,29 +135,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.firebaseLogin.signOut();
     }
 
-    /*private void updateUI(FirebaseUser user) {
-        final TextView uidView = findViewById(R.id.statusId);
-        TextView emailView = findViewById(R.id.statusEmail);
-        Switch mSwitch = findViewById(R.id.statusSwitch);
-        boolean isSignedIn = (user != null);
-
-        // Status text
-        if (isSignedIn) {
-            uidView.setText(getString(R.string.id_fmt, user.getUid()));
-            emailView.setText(getString(R.string.email_fmt, user.getEmail()));
-            Log.i(LOG_TAG, "signedIn: " + getString(R.string.id_fmt, user.getUid()));
-        } else {
-            uidView.setText(R.string.signed_out);
-            emailView.setText(null);
-            Log.i(LOG_TAG, "signOut: " + getString(R.string.signed_out));
-        }
-
-        // Button visibility
-        findViewById(R.id.buttonSignIn).setEnabled(!isSignedIn);
-        findViewById(R.id.buttonAnonymousSignOut).setEnabled(isSignedIn);
-        mSwitch.setChecked(isSignedIn);
-
-
-        System.gc(); System.exit(0);
-    }*/
+    private void exit() {
+        signOut();
+        this.finish();
+    }
 }

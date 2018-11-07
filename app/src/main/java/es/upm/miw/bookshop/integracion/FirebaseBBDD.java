@@ -1,6 +1,5 @@
-package es.upm.miw.bookshop.integracion;
+package es.upm.miw.bookshop.Integracion;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -10,10 +9,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import es.upm.miw.bookshop.BooksListActivity;
+import java.util.HashMap;
+import java.util.Map;
+
 import es.upm.miw.bookshop.OrderListActivity;
 import es.upm.miw.bookshop.models.BookTransfer;
-import es.upm.miw.bookshop.models.Books;
 
 public class FirebaseBBDD {
 
@@ -43,6 +43,13 @@ public class FirebaseBBDD {
         this.mBooksDatabaseReference.push().setValue(book);
     }
 
+    public boolean modifyBook(BookTransfer book) {
+        Map<String, Object> booksUpdates = new HashMap<>();
+        DatabaseReference mBooksDataReferenceChange = mFirebaseDatabase.getReference().child("books/" + book.getId());
+        mBooksDataReferenceChange.setValue(book);
+        return true;
+    }
+
     public void loadBooks(final OrderListActivity activity) {
         if(mChildEventListener==null){
             // btb this same code is executed onCreate
@@ -52,6 +59,7 @@ public class FirebaseBBDD {
 
                     // Deserialize data from DB into our FriendlyMessage object
                     BookTransfer book = dataSnapshot.getValue(BookTransfer.class);
+                    book.setId(dataSnapshot.getKey());
                     activity.loadBookOrder(book);
                 }
 
