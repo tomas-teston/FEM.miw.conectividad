@@ -122,12 +122,6 @@
                 android:layout_weight="1"
                 android:text="@string/btnPedir" />
 
-            <Button
-                android:id="@+id/btnMasDetalle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btnMasDetalles" />
         </LinearLayout>
     </LinearLayout>
 
