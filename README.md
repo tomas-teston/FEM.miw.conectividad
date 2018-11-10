@@ -57,9 +57,8 @@ Se realiza como ejemplo una aplicación que gestiona pedidos de ejemplares de li
 Esta idea está enfocada a priori a que solo exista un administrador de la aplicación (en este caso 
 será un librero).
 
-### Esquema de la arquitectura y 
-A continuación se detalla la estructura que se ha seguido en la aplicación y su correspondiente 
-ejemplo de utilización:
+### Caso de uso de la aplicación
+A continuación se detalla el funcionamiento de la aplicación especificando un caso de uso de la misma:
 
 * __Login (página inicial)__: En esta ventana se podrá utilizar usuario y contraseña para acceder
 a la aplicación. Para esta demo se puede utilizar las siguientes credenciales:
@@ -93,8 +92,8 @@ registro donde nos permite ver el seguimiento del mismo, como la fecha en la que
 del mismo. Para acceder a este listado, pulsamos sobre el botón que aparece arriba a la derecha del 
 todo (icono un papel con una lupa encima) y accedemos a la ventana que nos muestra dicho listado.
 En este listado podemos realizar una reclamación. Para ello, tendremos que pulsar sobre el botón 
-"Añadir foto relamación" y seleccionar una foto en el que aparezca el libro deteriorado. Este proceso
-coloca el estado en modo relamación de forma automática.
+"Añadir foto reclamación" y seleccionar una foto en el que aparezca el libro deteriorado. Este proceso
+coloca el estado en modo reclamación de forma automática.
 
     * Demostracción de acceso al listado:
     
@@ -104,6 +103,17 @@ coloca el estado en modo relamación de forma automática.
     
     <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/registroReclamacion.gif" alt="abrir una reclamación" width="350"/>
     
+    * La imagen que se adjunta se puede modificar pulsando sobre el botón "Modificar foto" y 
+    realizando el mismo proceso que el punto anterior o podemos pulsar sobre el botón "eliminar"
+    para eliminar la reclamación.
+    
+### Posibles amplicaciones.
+
+    * Control de estados.
+    * Ampliar la información de los libros.
+    * Ajustar el diseño de los listados y mejorar el "look and feel". 
+    * Permitir eliminar un pedido.
+    * Añadir más filtros en la búsqueda de libros.
     
     
     
