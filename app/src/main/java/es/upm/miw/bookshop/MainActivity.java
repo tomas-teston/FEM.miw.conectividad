@@ -32,8 +32,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-import es.upm.miw.bookshop.Integracion.FirebaseBBDD;
-import es.upm.miw.bookshop.Integracion.FirebaseLogin;
+import es.upm.miw.bookshop.integracion.FirebaseBBDD;
+import es.upm.miw.bookshop.integracion.FirebaseLogin;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

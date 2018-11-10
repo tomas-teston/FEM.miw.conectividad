@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import es.upm.miw.bookshop.Integracion.FirebaseBBDD;
+import es.upm.miw.bookshop.integracion.FirebaseBBDD;
 import es.upm.miw.bookshop.enums.BookState;
-import es.upm.miw.bookshop.Integracion.FirebaseLogin;
+import es.upm.miw.bookshop.integracion.FirebaseLogin;
 import es.upm.miw.bookshop.models.BookTransfer;
 import es.upm.miw.bookshop.models.Books;
 import es.upm.miw.bookshop.models.VolumeInfo;

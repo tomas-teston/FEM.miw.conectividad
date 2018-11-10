@@ -1,4 +1,4 @@
-package es.upm.miw.bookshop.Integracion;
+package es.upm.miw.bookshop.integracion;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

@@ -10,9 +10,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.upm.miw.bookshop.Integracion.FirebaseBBDD;
-import es.upm.miw.bookshop.Integracion.FirebaseStorageBooks;
-import es.upm.miw.bookshop.Integracion.FirebaseLogin;
+import es.upm.miw.bookshop.integracion.FirebaseBBDD;
+import es.upm.miw.bookshop.integracion.FirebaseStorageBooks;
+import es.upm.miw.bookshop.integracion.FirebaseLogin;
 import es.upm.miw.bookshop.models.BookTransfer;
 
 public class OrderListActivity extends AppCompatActivity {

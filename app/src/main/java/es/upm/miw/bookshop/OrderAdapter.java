@@ -3,7 +3,6 @@ package es.upm.miw.bookshop;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +11,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
-import es.upm.miw.bookshop.Integracion.FirebaseStorageBooks;
+import es.upm.miw.bookshop.integracion.FirebaseStorageBooks;
 import es.upm.miw.bookshop.enums.BookState;
 import es.upm.miw.bookshop.models.BookTransfer;
-import es.upm.miw.bookshop.models.Item;
-import es.upm.miw.bookshop.models.VolumeInfo;
 
 public class OrderAdapter extends ArrayAdapter implements View.OnClickListener{
 

@@ -1,4 +1,4 @@
-package es.upm.miw.bookshop.Integracion;
+package es.upm.miw.bookshop.integracion;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -57,7 +57,7 @@ public class FirebaseStorageBooks {
                     Uri downloadUrl = urlTask.getResult();
                     bookTransfer.setUrlFotoQueja(downloadUrl.toString());
                     bookTransfer.setEstado(BookState.CHECKING_ORDER);
-                    if (es.upm.miw.bookshop.Integracion.FirebaseBBDD.getInstance().modifyBook(bookTransfer)) {
+                    if (es.upm.miw.bookshop.integracion.FirebaseBBDD.getInstance().modifyBook(bookTransfer)) {
                         ((OrderListActivity) activity).update("add");
                     }
                 }
@@ -73,7 +73,7 @@ public class FirebaseStorageBooks {
             @Override
             public void onSuccess(Void aVoid) {
                 bookTransfer.setUrlFotoQueja(null);
-                if (es.upm.miw.bookshop.Integracion.FirebaseBBDD.getInstance().modifyBook(bookTransfer)) {
+                if (es.upm.miw.bookshop.integracion.FirebaseBBDD.getInstance().modifyBook(bookTransfer)) {
                     ((OrderListActivity) activity).update("delete");
                 }
             }
