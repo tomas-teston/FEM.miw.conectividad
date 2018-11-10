@@ -88,19 +88,21 @@ a seguir son:
     
     <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/realizarPedido.gif" alt="pedir libros" width="350"/>
     
-* __Seguimiento de pedidos y relamaciones__: Cuando se realiza un pedido, la aplicación guarda un 
+* __Seguimiento de pedidos y reclamaciones__: Cuando se realiza un pedido, la aplicación guarda un 
 registro donde nos permite ver el seguimiento del mismo, como la fecha en la que se hizo o el estado
 del mismo. Para acceder a este listado, pulsamos sobre el botón que aparece arriba a la derecha del 
 todo (icono un papel con una lupa encima) y accedemos a la ventana que nos muestra dicho listado.
-En este listado podemos realizar una relamación. Para ello, tendremos que pulsar sobre el botón 
+En este listado podemos realizar una reclamación. Para ello, tendremos que pulsar sobre el botón 
 "Añadir foto relamación" y seleccionar una foto en el que aparezca el libro deteriorado. Este proceso
 coloca el estado en modo relamación de forma automática.
 
     * Demostracción de acceso al listado:
     
-    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/accesoListadoPedidos.gif" alt="pedir libros" width="350"/>
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/accesoListadoPedidos.gif" alt="acceso listado de libros pedidos" width="350"/>
     
     * Demostracción de creación de reclamación.
+    
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/registroReclamacion.gif" alt="abrir una reclamación" width="350"/>
     
     
     
