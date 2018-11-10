@@ -61,10 +61,50 @@ será un librero).
 A continuación se detalla la estructura que se ha seguido en la aplicación y su correspondiente 
 ejemplo de utilización:
 
+* __Login (página inicial)__: En esta ventana se podrá utilizar usuario y contraseña para acceder
+a la aplicación. Para esta demo se puede utilizar las siguientes credenciales:
 
-[![Login Diagrama](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)
+    * Usuario: demo@hotmail.com
+    * Contraseña: demo1234
+    Nota: Si el usuario y contraseña son incorrectos nos aparecerá el siguiente aviso:
+    
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/errorLogin.gif" alt="error en el login" width="350"/>
+    
+* __Registrar pedido de libros__: Para poder pedir libros, primero tenemos que hacer login en la 
+plataforma. Después, introducimos título y/o autor y pulsamos el botón buscar. La aplicación
+buscará en los servidores de libros de Google y los mostrará en un listado. Debajo de cada libro, 
+aparece un botón "pedir" que nos permite realizar pedidos de dicho ejemplar, nos aparecerá una
+ventana "pop up" donde tendremos que introducir cuantos ejemplares queremos. Por tanto, los pasos
+a seguir son:
 
-<img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/eliminaGif.gif" alt="eliminar" width="350"/>
+    1- Login: Introducir usuario y contraseña.
+    
+    2- Buscar libros: Introducimos título y/o autores del libro que buscamos:
+    
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/buscarLibros.gif" alt="buscar libros" width="350"/>
+    
+    3- Pulsamos el botón "pedir": Debajo de cada libro existe un botón con el que podemos pedir
+    un número de ejemplares.
+    
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/realizarPedido.gif" alt="pedir libros" width="350"/>
+    
+* __Seguimiento de pedidos y relamaciones__: Cuando se realiza un pedido, la aplicación guarda un 
+registro donde nos permite ver el seguimiento del mismo, como la fecha en la que se hizo o el estado
+del mismo. Para acceder a este listado, pulsamos sobre el botón que aparece arriba a la derecha del 
+todo (icono un papel con una lupa encima) y accedemos a la ventana que nos muestra dicho listado.
+En este listado podemos realizar una relamación. Para ello, tendremos que pulsar sobre el botón 
+"Añadir foto relamación" y seleccionar una foto en el que aparezca el libro deteriorado. Este proceso
+coloca el estado en modo relamación de forma automática.
+
+    * Demostracción de acceso al listado:
+    
+    <img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/accesoListadoPedidos.gif" alt="pedir libros" width="350"/>
+    
+    * Demostracción de creación de reclamación.
+    
+    
+    
+    
 
 
 
