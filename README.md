@@ -8,6 +8,7 @@
 * GitHub
 * Firebase
 * Retrofit
+* Glind
 
 ## Enunciado.
 
@@ -22,7 +23,6 @@ fotos, GPS, brújula, temperatura, biosensores, etc).
 
 La presente tarea pretende abarcar los diferentes conceptos y técnicas estudiados en la asignatura. 
 Para conseguir este objetivo se propone al alumno el desarrollo de un Cuaderno de Bitácora en Android.
-
 
 Se pide realizar una aplicación móvil para una empresa de repartos (p.ej. deliveroo, la casa del 
 libro, amazon, reparto de helados, etc…) que gestione la trazabilidad de sus productos, entregas y 
@@ -48,4 +48,26 @@ Se adjuntará un documento de máximo 2 páginas describiendo la solución propu
 
 Se propone la arquitectura básica que se ilustra en la figura 1:
 
-[![UML](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/chart.png)](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/chart.png)
+[![Arquitectura básica propuesta](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/chart.png)](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/chart.png)
+
+## Propuesta de aplicación desarrollada - Book shop.
+
+### Descripción de la idea
+Se realiza como ejemplo una aplicación que gestiona pedidos de ejemplares de libros de una librería. 
+Esta idea está enfocada a priori a que solo exista un administrador de la aplicación (en este caso 
+será un librero).
+
+### Esquema de la arquitectura y 
+A continuación se detalla la estructura que se ha seguido en la aplicación y su correspondiente 
+ejemplo de utilización:
+
+
+[![Login Diagrama](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)
+
+[![Demo Login](https://gifs.com/gif/eliminar-W75oQg)](https://gifs.com/gif/eliminar-W75oQg)
+
+
+
+
+
+
