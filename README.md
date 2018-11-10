@@ -64,7 +64,7 @@ ejemplo de utilización:
 
 [![Login Diagrama](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)](https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/loginDiagrama.png)
 
-<img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/eliminaGif.gif" alt="eliminar" width="40"/>
+<img src="https://github.com/tomas-teston/FEM.miw.conectividad/blob/master/eliminaGif.gif" alt="eliminar" width="250"/>
 
 
 
